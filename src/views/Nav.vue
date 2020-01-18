@@ -18,7 +18,7 @@
 
 <script>
 	export default {
-		name:'nav',
+		name:'v-nav',
 		data(){
 			return {};
 		},
@@ -64,4 +64,6 @@
 			   position: -webkit-sticky;    
 			   top: 10px;                          
 		}
+		
+		
 </style>

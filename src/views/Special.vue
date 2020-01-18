@@ -86,7 +86,6 @@ h3{
 				.meta{
 					color: #a8b2b4;
 					font-size: 12px;
-					
 				}
 			}
 		}

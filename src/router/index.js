@@ -53,7 +53,12 @@ const routes = [
 	{
 		path: 'question/waiting',
 		component: () => import('../views/QuestionWaiting.vue')
-	}
+	},
+	{
+				path: 'roundTable',
+				name: 'roundTable',
+				component: () => import('../views/RoundTable.vue')
+	}		
 	]
   },
   {
