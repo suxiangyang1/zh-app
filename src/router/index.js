@@ -9,6 +9,7 @@ import Follow from '../views/Follow.vue'
 import Hot from '../views/Hot.vue'
 import QuestionWaiting from '../views/QuestionWaiting.vue'
 import Login from '../views/Login.vue'
+import CollectionHot from '../views/CollectionHot.vue'
 
 Vue.use(VueRouter)
 
@@ -58,7 +59,11 @@ const routes = [
 				path: 'roundTable',
 				name: 'roundTable',
 				component: () => import('../views/RoundTable.vue')
-	}		
+	},
+	{
+		path: 'collection/hot',
+		component: () => import('../views/CollectionHot.vue')
+	}
 	]
   },
   {

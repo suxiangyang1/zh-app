@@ -3,7 +3,7 @@
 		<div class="holder">
 			<div class="row card" v-for="(item,index) in explores" :key="index">
 				<img :src="item.banner" alt="background-photo" class="cover">
-				<h3 style="float: left;">{{item.name}}</h3>
+				<h4 style="float: left; margin-left: 70px;">{{item.name}}</h4>
 				<span style="margin: 4px 50px;text-align: center;float: right;font-size: 13px;"><font color="#CCCCCC">该圆桌被浏览{{item.visitsCount}}次</font></span>
 			</div>
 		</div>
@@ -50,7 +50,7 @@ export default {
 }
 .cover{
 	width: 250px;
-	height: 250px;
+	height: 245px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
