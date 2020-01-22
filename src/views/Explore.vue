@@ -59,18 +59,52 @@
 				</button>
 			</div>
 			
+			<div class="zuanlan">
+				<svg class="Zi Zi--EditCircle" fill="currentColor" viewBox="0 0 24 24" width="36" height="36"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm4.043-15.524a.745.745 0 0 0-1.053.017l-6.857 7.071 2.237 2.17 6.857-7.071a.743.743 0 0 0-.016-1.052l-1.168-1.135zm-9.028 9.476l-.348 1.381 1.37-.39 1.274-.36-1.973-1.916-.323 1.285z" fill-rule="evenodd"></path></svg>
+				<span><font size="5"><strong>专栏</strong></font></span>
+			</div>
+			<div class="zuanlan-top" v-for="(column,index) in columns" :key="index">
+				<div class="tp">
+					<img :src="column.imagesUrl" alt="photo">
+				</div>
+				<div class="biaoti">
+					<h5><strong>{{column.title}}</strong></h5>
+				</div>
+				<div class="biaoti">
+					<span style="letter-spacing: initial;"><font size="2" color="#d6d6d6">{{column.followers}}关注&nbsp;</font></span>
+					<span>&nbsp;&nbsp;</span>
+					<span style="letter-spacing: initial;"><font size="2" color="#d6d6d6">&nbsp;{{column.articlesCount}}文章</font></span>
+				</div>
+				<div class="biaoti" style="margin-top: 10px;font-size: 14px;color: #444;" >
+					<p>{{column.description}}</p>
+					<button style="padding: 5px 10px;margin-bottom: 20px;"><router-link to="/columns"></router-link>
+					进入专栏</button>
+				</div>
+			</div>
+			
+			<div class="ExploreHomePage-ContentSection-moreButton">
+				<a href="/columns" target="_blank" rel="noreferrer noopener" data-za-detail-view-id="5811"><router-link to="/columns">查看更多专栏</router-link><svg class="Zi Zi--ArrowRight" fill="currentColor" viewBox="0 0 24 24" width="25" height="25"><path d="M9.218 16.78a.737.737 0 0 0 1.052 0l4.512-4.249a.758.758 0 0 0 0-1.063L10.27 7.22a.737.737 0 0 0-1.052 0 .759.759 0 0 0-.001 1.063L13 12l-3.782 3.716a.758.758 0 0 0 0 1.063z" fill-rule="evenodd">
+			</path>
+			</svg>
+			</a>
+			</div>
 		</div>
 </template>
 
 <script>
 export default {
 		name:'explore',
+		name:'favorite',
+		name:'column',
 		data(){
 			return {
 				explores: []
 			};
 			return {
 				favorites: []
+			};
+			return {
+				columns: []
 			};
 		},
 		created() {
@@ -82,6 +116,10 @@ export default {
 				console.log(res.data.data.length)
 				this.favorites = res.data.data;
 			});
+			this.axios.get(this.$store.state.baseUrl + '/columns').then(res =>{
+				console.log(res.data.data.length);
+				this.columns = res.data.data;
+			})
 		},
 	};
 </script>
@@ -243,5 +281,64 @@ p{
 			
 		}
 	}
+}
+.zuanlan{
+	display: flex;
+	height: 36px;
+	-webkit-align-content: center;
+	align-items: center;
+	margin-left: 35px;
+	span{
+		margin-left: 10px;
+	}
+}
+.zuanlan-top{
+	box-sizing: border-box;
+	display: inline-block;
+	width: 18%;
+	border: 1px solid #eee;
+	border-radius: 10px;
+	background-color: #ffffff;
+	margin: 40px;
+	padding-left: 20px;
+	padding-right: 10px;
+	.tp{
+		display: inline-block;
+		padding: 20px;
+		margin: 0px;
+			img{
+					width: 90px;
+					height: 90px;
+					border-radius: 50%;
+					overflow: hidden;
+					margin-left: 40%;
+		}
+	}
+	.biaoti{
+		margin-top: -20px;
+		border: none;
+		    // height: 22px;
+		    // line-height: 22px;
+		    font-size: 16px;
+		    // max-width: 187px;
+		    // white-space: nowrap;
+		    // overflow: hidden;
+		    text-overflow: ellipsis;
+		    // font-weight: 600;
+		text-align: center;
+		
+	}
+}
+.ExploreHomePage-ContentSection-moreButton{
+	display: flex;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    justify-content: center;
+}
+svg{
+	fill: currentcolor;
+	    width: 25;
+	    height: 25;
+		overflow: hidden;
 }
 </style>

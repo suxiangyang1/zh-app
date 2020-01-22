@@ -10,6 +10,7 @@ import Hot from '../views/Hot.vue'
 import QuestionWaiting from '../views/QuestionWaiting.vue'
 import Login from '../views/Login.vue'
 import CollectionHot from '../views/CollectionHot.vue'
+import Columns from '../views/Columns.vue'
 
 Vue.use(VueRouter)
 
@@ -63,6 +64,10 @@ const routes = [
 	{
 		path: 'collection/hot',
 		component: () => import('../views/CollectionHot.vue')
+	},
+	{
+		path: 'columns',
+		component:() => import('../views/Columns.vue')
 	}
 	]
   },
